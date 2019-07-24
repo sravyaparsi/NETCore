@@ -1,0 +1,28 @@
+createdefaultbuilder in main.cs host the web app by iis internallly and aslo configure logging 
+
+Asp .net hosting model 
+
+- in process hosting - only one server(iis express) - high performance
+- out process hosting - internal and external server(reverse proxy server)- (kestral) and (iis, apache)
+
+when .net core application is build using CLI(kestral is used as a server)
+
+Kestral - the name of the process that runs the app is dotnet.exe
+==============================================================
+
+Logging providerss:
+
+.logginconfigurations in createdefaultbuilder
+
+1. Console logging providers- run applicaiton from cli
+2. debug logging providers- run app from vs
+
+logging exception: 
+1. Inject the instance of Ilogger 
+2. specify the type of controller as a generic argument for Ilogger 
+3. use log levels to log
+
+
+
+
+
