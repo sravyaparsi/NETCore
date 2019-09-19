@@ -1,0 +1,16 @@
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\AzureStorageApp.exe.config
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\AzureStorageApp.exe
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\AzureStorageApp.pdb
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.csprojResolveAssemblyReference.cache
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.Form1.resources
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.Properties.Resources.resources
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.csproj.GenerateResource.Cache
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.exe
+C:\Users\parsi saiteja\Desktop\zoho\AzureStorageApp\AzureStorageApp\obj\Debug\AzureStorageApp.pdb
