@@ -23,15 +23,16 @@ namespace AzureStorageApp
             InitializeComponent();
         }
 
-     private void label1_Click(object sender, EventArgs e)
+          private void label1_Click(object sender, EventArgs e)
         {
 
         }
-      
+        StorageCredentials storageCred = new StorageCredentials("parsistorage", "3BWzjimrDzUrCERaN0f7A/hl9cF0mlfEzRwkuQB1UiP0vhzPYKn0oJv42VLC8zoV+ihyHiYDkZJVzeBjy484Sw==");
+
+        //Upload to blob
         private void button1_Click(object sender, EventArgs e)
         {
-            StorageCredentials storageCred = new StorageCredentials("storageazureacc", "yuj+FvoDV8GQ7HANr9SfF+avWO+egRuS/p5+F+DUV0tdnSoxveRhHNEI+5LtwA391NMZQqj0fB59KslNng4sRQ==");
-
+           
             FileStream fs = new FileStream(textBox1.Text, FileMode.Open);
 
             CloudStorageAccount cloudstorageacc = new CloudStorageAccount(storageCred, true);
@@ -52,8 +53,7 @@ namespace AzureStorageApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            StorageCredentials storageCred = new StorageCredentials("storageazureacc", "yuj+FvoDV8GQ7HANr9SfF+avWO+egRuS/p5+F+DUV0tdnSoxveRhHNEI+5LtwA391NMZQqj0fB59KslNng4sRQ==");
-
+             
 
             CloudStorageAccount cloudstorageacc = new CloudStorageAccount(storageCred, true);
 
@@ -67,27 +67,48 @@ namespace AzureStorageApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            StorageCredentials storageCred = new StorageCredentials("storageazureacc", "yuj+FvoDV8GQ7HANr9SfF+avWO+egRuS/p5+F+DUV0tdnSoxveRhHNEI+5LtwA391NMZQqj0fB59KslNng4sRQ==");
+            String storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=parsistorage;AccountKey=3BWzjimrDzUrCERaN0f7A/hl9cF0mlfEzRwkuQB1UiP0vhzPYKn0oJv42VLC8zoV+ihyHiYDkZJVzeBjy484Sw==;EndpointSuffix=core.windows.net";
 
-            CloudStorageAccount cloudStorageAccount = new CloudStorageAccount(storageCred, true);
+            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(storageConnectionString);
 
             var client = cloudStorageAccount.CreateCloudTableClient();
 
-            var table = client.GetTableReference("patientdetails");
+            var table = client.GetTableReference("patientdetail");
             table.CreateIfNotExists();
-            PatientDetails patient = new PatientDetails();
-            patient.patientId = textBox3.Text;
-            patient.area = textBox4.Text;
-            patient.age = textBox5.Text;
-            patient.healthCompliant = textBox6.Text;
-            patient.PartitionKey = "patient";
-            patient.RowKey = "j";
+            PatientDetails patient = new PatientDetails(textBox3.Text,textBox4.Text,textBox5.Text,textBox6.Text);
            
-            TableOperation tableOPeration = TableOperation.InsertOrReplace(patient);
+            patient.PartitionKey = "patient";
+            patient.RowKey = patient.patientid;
+           
+            TableOperation tableOPeration = TableOperation.Insert(patient);
             table.Execute(tableOPeration);
             
         }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CloudStorageAccount cloudstorageacc = new CloudStorageAccount(storageCred, true);
 
+            var cloudtable = cloudstorageacc.CreateCloudTableClient();
+            var table = cloudtable.GetTableReference("patientdetail");
+            table.CreateIfNotExists();
+            TableQuery<PatientDetails> tablequery = new TableQuery<PatientDetails>().Where(
+                    TableQuery.CombineFilters(TableQuery.GenerateFilterCondition("patientid", QueryComparisons.Equal, textBox3.Text), TableOperators.And,
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "patient")
+                ));
+
+            var patientdetails = table.ExecuteQuery(tablequery);
+
+            if (patientdetails.Any())
+            {
+                label7.Text = "patientId found";
+                
+            }
+            else
+            {
+                label7.Text = "patientId not found";
+            }
+
+        }
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -109,5 +130,7 @@ namespace AzureStorageApp
         {
 
         }
+
+       
     }
 }
